@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Involve', Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    padding-bottom: 150px; /* Отступ снизу для футера */
+    min-height: 100vh; /* Минимальная высота body */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    background-color: #28a745;
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-white:hover {
+    background-color: #e0e0e0;
+}
+
+/* Register Form */
+.register-form {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.register-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.register-form form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.phone-input {
+    display: flex;
+    gap: 10px;
+}
+
+.register-form select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 120px;
+    background-color: #fff;
+}
+
+.register-form input[type="text"][name="phone-number"] {
+    flex: 1;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.checkbox-container a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.checkbox-container a:hover {
+    text-decoration: underline;
+}
+
+.btn-orange {
+    background-color: #f5a623;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-orange:hover {
+    background-color: #e6951a;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-buttons button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.social-buttons button:hover {
+    background-color: #f9f9f9;
+}
+
+.social-buttons img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-contacts p {
+    margin: 5px 0;
+}
+
+.footer-email a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.footer-email a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright .highlight {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Адаптивные стили */
+
+/* ПК (1280px и ниже) */
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+
+    .register-form h2 {
+        font-size: 22px;
+    }
+
+    .register-form form {
+        max-width: 360px;
+    }
+
+    .logo-image {
+        height: 36px;
+    }
+
+    .btn-white {
+        padding: 8px 18px;
+        font-size: 15px;
+    }
+
+    .btn-orange {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .social-buttons button {
+        padding: 8px 18px;
+        font-size: 15px;
+    }
+}
+
+/* Планшет (768px и ниже) */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 180px; /* Увеличиваем отступ для футера */
+    }
+
+    .container {
+        width: 95%;
+        padding: 0 15px;
+    }
+
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .logo-image {
+        height: 32px;
+    }
+
+    .btn-white {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .register-form {
+        padding: 30px 0;
+    }
+
+    .register-form h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .register-form form {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .phone-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .register-form select {
+        width: 100%;
+        max-width: none;
+    }
+
+    .register-form input[type="text"][name="phone-number"] {
+        width: 100%;
+    }
+
+    .checkbox-container {
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .btn-orange {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .social-buttons button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-contacts p {
+        font-size: 13px;
+    }
+
+    .footer-copyright p {
+        font-size: 13px;
+    }
+}
+
+/* Телефон (375px и ниже) */
+@media (max-width: 375px) {
+    body {
+        padding-bottom: 200px; /* Еще больше отступ для футера */
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .logo-image {
+        height: 28px;
+    }
+
+    .btn-white {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .register-form {
+        padding: 20px 0;
+    }
+
+    .register-form h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .register-form input,
+    .register-form select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .phone-input {
+        gap: 8px;
+    }
+
+    .checkbox-container {
+        font-size: 12px;
+    }
+
+    .btn-orange {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .social-buttons button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .social-buttons img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .footer-contacts p,
+    .footer-copyright p {
+        font-size: 12px;
+    }
+}
