@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTUTOR - Регистрация</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            padding-bottom: 100px; /* Отступ снизу, чтобы футер не перекрывал контент */
+            min-height: 100vh; /* Минимальная высота body на весь экран */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #28a745;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 40px;
+        }
+
+        .btn-white {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .register-form {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .register-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .register-form form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .register-form input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            width: 100%;
+        }
+
+        .phone-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .register-form select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 120px;
+        }
+
+        .register-form input[type="text"][name="phone-number"] {
+            flex: 1;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn-orange {
+            background-color: #f5a623;
+      /* Expired Code Block - Click to reveal */
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-buttons button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .social-buttons img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 14px;
+            position: fixed; /* Закрепляем футер внизу */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-contacts p {
+            margin: 5px 0;
+        }
+
+        .footer-email a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .footer-copyright .highlight {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            body {
+                padding-bottom: 120px; /* Увеличиваем отступ для мобильных */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="img/PROTUTOR-logo.png" alt="PROTUTOR" class="logo-image">
+                </a>
+                <div class="header-right">
+                    <a href="index.html" class="btn-white">ВХОД</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Form -->
+    <section class="register-form">
+        <div class="container">
+            <h2>Регистрация репетитора</h2>
+            <form>
+                <input type="text" placeholder="Имя" required>
+                <div class="phone-input">
+                    <select required>
+                        <option value="" disabled selected>🇧🇾 +375</option>
+                        <option value="+375">🇧🇾 +375</option>
+                        <option value="+7">🇷🇺 +7</option>
+                        <option value="+48">🇵🇱 +48</option>
+                    </select>
+                    <input type="text" name="phone-number" placeholder="Номер телефона" required>
+                </div>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <input type="text" placeholder="Предмет преподавания" required>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agreement" required>
+                    <label for="agreement">Согласен с <a href="#">политикой обработки персон. данных</a></label>
+                </div>
+                <button type="submit" class="btn-orange">СТАТЬ РЕПЕТИТОРОМ</button>
+            </form>
+            <div class="social-buttons">
+                <button><img src="https://www.google.com/favicon.ico" alt="Google"> Google</button>
+                <button><img src="https://www.facebook.com/favicon.ico" alt="Facebook"> Facebook</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contacts">
+                    <p>+375 29 303 50 50 Беларусь</p>
+                    <p>+7 969 999 71 11 Россия</p>
+                    <p>+48 459 566 944 Польша</p>
+                    <p class="footer-email"><a href="mailto:help@protutor.by">help@protutor.by</a></p>
+                </div>
+                <div class="footer-copyright">
+                    <p>Репетиторский центр <span class="highlight">PROTUTOR</span> 2016 – 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

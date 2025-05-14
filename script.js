@@ -99,11 +99,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const recoverForm = document.querySelector('.recover-form');
 
     loginButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginPopup.classList.add('active');
-            body.style.overflow = 'hidden';
-        });
+        // Проверяем, есть ли у кнопки атрибут href и если он равен "register.html", не перехватываем клик
+        if (button.getAttribute('href') !== 'register.html') {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginPopup.classList.add('active');
+                body.style.overflow = 'hidden';
+            });
+        }
     });
 
     popupClose.addEventListener('click', () => {
