@@ -6,30 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = item.querySelector('.accordion-header');
         const content = item.querySelector('.accordion-content');
         
-        // Скрываем все элементы, кроме первого
-        if (item !== accordionItems[0]) {
-            item.classList.remove('active');
-        } else {
-            item.classList.add('active');
-        }
-        
         header.addEventListener('click', () => {
-            // Проверяем, активен ли текущий элемент
             const isActive = item.classList.contains('active');
-            
-            // Закрываем все элементы
-            accordionItems.forEach(accItem => {
-                accItem.classList.remove('active');
-            });
-            
-            // Если элемент не был активен, открываем его
+            accordionItems.forEach(accItem => accItem.classList.remove('active'));
             if (!isActive) {
                 item.classList.add('active');
             }
         });
     });
-    
-    // Обновленная функциональность слайдера отзывов
+
+    // Testimonial Slider
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-btn');
@@ -37,118 +23,120 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentSlide = 0;
     const totalSlides = slides.length;
-    
-    // Функция для показа определенного слайда на десктопе
+
     function showSlide(index) {
-        // Скрываем все слайды
         slides.forEach(slide => {
             slide.classList.remove('active');
             slide.style.opacity = 0;
         });
-        
-        // Деактивируем все точки
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        // Показываем нужный слайд
+        dots.forEach(dot => dot.classList.remove('active'));
         slides[index].classList.add('active');
-        
-        // Плавно показываем слайд
-        setTimeout(() => {
-            slides[index].style.opacity = 1;
-        }, 20);
-        
-        // Активируем соответствующую точку
+        setTimeout(() => slides[index].style.opacity = 1, 20);
         dots[index].classList.add('active');
-        
-        // Обновляем текущий индекс
         currentSlide = index;
     }
-    
-    // Показ следующего слайда
+
     function nextSlide() {
         let nextIndex = (currentSlide + 1) % totalSlides;
         showSlide(nextIndex);
     }
-    
-    // Показ предыдущего слайда
+
     function prevSlide() {
         let prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
         showSlide(prevIndex);
     }
-    
-    // Обработчики событий для кнопок
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-    }
-    
-    // Обработчики событий для точек
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-    
-    // Автоматическое переключение слайдов каждые 7 секунд
-    let slideInterval = setInterval(() => {
-        nextSlide();
-    }, 7000);
-    
-    // Останавливаем автоматическое переключение при наведении на слайдер
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
+
+    let slideInterval = setInterval(nextSlide, 7000);
     const sliderContainer = document.querySelector('.testimonial-slider-container');
-    
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        sliderContainer.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(() => {
-                nextSlide();
-            }, 7000);
-        });
-    }
-    
-    // Mobile menu functionality
+    sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    sliderContainer.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 7000));
+
+    // Mobile Menu
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const closeBtn = document.querySelector('.mobile-menu-close');
     const body = document.body;
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-        });
-    }
-    
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            body.style.overflow = ''; // Re-enable scrolling
-        });
-    }
-    
-    // Close menu when clicking outside
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        body.style.overflow = '';
+    });
+
     document.addEventListener('click', (e) => {
-        if (mobileMenu && mobileMenu.classList.contains('active') && 
-            !mobileMenu.contains(e.target) && 
-            !menuToggle.contains(e.target)) {
+        if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
             mobileMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
             body.style.overflow = '';
         }
     });
-    
+
     // Handle window resize
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && mobileMenu && mobileMenu.classList.contains('active')) {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
             mobileMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
             body.style.overflow = '';
         }
     });
-  });
+
+    // Login Popup
+    const loginButtons = document.querySelectorAll('.login-btn');
+    const loginPopup = document.querySelector('#loginPopup');
+    const popupClose = document.querySelector('.popup-close');
+    const forgotPassword = document.querySelector('.forgot-password');
+    const loginForm = document.querySelector('.login-form');
+    const recoverForm = document.querySelector('.recover-form');
+
+    loginButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginPopup.classList.add('active');
+            body.style.overflow = 'hidden';
+        });
+    });
+
+    popupClose.addEventListener('click', () => {
+        loginPopup.classList.remove('active');
+        body.style.overflow = '';
+        loginForm.classList.add('active');
+        recoverForm.classList.remove('active');
+    });
+
+    forgotPassword.addEventListener('click', () => {
+        loginForm.classList.remove('active');
+        recoverForm.classList.add('active');
+    });
+
+    // Handle form submission (basic example for password recovery)
+    const recoverFormSubmit = recoverForm.querySelector('form');
+    recoverFormSubmit.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const successMessage = recoverForm.querySelector('.success-message');
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+            recoverForm.classList.remove('active');
+            loginForm.classList.add('active');
+        }, 2000);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (loginPopup.classList.contains('active') && !loginPopup.contains(e.target) && !e.target.classList.contains('login-btn')) {
+            loginPopup.classList.remove('active');
+            body.style.overflow = '';
+            loginForm.classList.add('active');
+            recoverForm.classList.remove('active');
+        }
+    });
+});
