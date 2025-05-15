@@ -371,7 +371,7 @@ body {
     background-color: #e65c00;
 }
 
-/* Эффект наложения изображений */
+/* Эффект наложения изображений с искажением вниз */
 .hero-image {
     width: 30%;
     position: relative;
@@ -406,21 +406,23 @@ body {
 .layer-2 {
     width: 85%;
     height: 85%;
-    left: -10%;
-    bottom: 6.5%;
+    right: 0;
+    bottom: 10%;
     z-index: 2;
     background-image: url('img/pexels-karolina-grabowska-7679892.png');
     opacity: 0.8;
+    transform: scale(0.85, 0.9) skew(0, -5deg);
 }
 
 .layer-3 {
     width: 72.25%;
     height: 72.25%;
-    left: -20%;
-    bottom: 12%;
+    right: 0;
+    bottom: 20%;
     z-index: 1;
     background-image: url('img/pexels-karolina-grabowska-7679892.png');
     opacity: 0.6;
+    transform: scale(0.7, 0.8) skew(0, -10deg);
 }
 
 /* Секция Преимущества */
@@ -847,14 +849,14 @@ body {
     border-radius: 10px;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .about-image-1 {
     width: 100%;
     height: 100%;
-    top: 0;
     right: 0;
+    bottom: 0;
     z-index: 3;
     background-image: url('img/young-female-student-listening-her-english-teacher.png');
 }
@@ -862,21 +864,23 @@ body {
 .about-image-2 {
     width: 85%;
     height: 85%;
-    right: -10%;
-    bottom: 5%;
+    right: 0;
+    bottom: 10%;
     z-index: 2;
     background-image: url('img/young-female-student-listening-her-english-teacher.png');
     opacity: 0.8;
+    transform: scale(0.85, 0.9) skew(0, -5deg);
 }
 
 .about-image-3 {
-    width: 70%;
-    height: 70%;
-    right: -20%;
-    bottom: 10%;
+    width: 72.25%;
+    height: 72.25%;
+    right: 0;
+    bottom: 20%;
     z-index: 1;
     background-image: url('img/young-female-student-listening-her-english-teacher.png');
     opacity: 0.6;
+    transform: scale(0.7, 0.8) skew(0, -10deg);
 }
 
 /* Секция FAQ */
@@ -1427,6 +1431,26 @@ body {
         height: 280px;
         margin-top: 0;
     }
+    .layer-1 {
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+    }
+    .layer-2 {
+        width: 85%;
+        height: 85%;
+        right: 0;
+        bottom: 5%;
+        transform: scale(0.85, 0.9) skew(0, -5deg);
+    }
+    .layer-3 {
+        width: 72.25%;
+        height: 72.25%;
+        right: 0;
+        bottom: 10%;
+        transform: scale(0.7, 0.8) skew(0, -10deg);
+    }
     .steps {
         flex-direction: column;
         align-items: flex-start;
@@ -1613,37 +1637,45 @@ body {
         text-align: center;
     }
     .about-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
     }
     .about-text {
-        width: 100%;
-        text-align: center;
+        width: 50%;
+        text-align: left;
     }
     .about-text p {
         font-size: 14px;
     }
     .about-image-stack {
-        width: 100%;
+        width: 50%;
         height: 280px;
-        margin-top: 25px;
+        margin-top: 0;
     }
     .about-image {
-        left: 50%;
-        transform: translateX(-50%);
+        right: 0;
+        transform: translateX(0);
     }
     .about-image-1 {
         width: 100%;
-        right: auto;
+        height: 100%;
+        right: 0;
+        bottom: 0;
     }
     .about-image-2 {
         width: 85%;
-        right: auto;
+        height: 85%;
+        right: 0;
+        bottom: 5%;
+        transform: scale(0.85, 0.9) skew(0, -5deg);
     }
     .about-image-3 {
-        width: 70%;
-        right: auto;
+        width: 72.25%;
+        height: 72.25%;
+        right: 0;
+        bottom: 10%;
+        transform: scale(0.7, 0.8) skew(0, -10deg);
     }
     .about-btn {
         padding: 12px 25px;
@@ -1757,6 +1789,43 @@ body {
         flex: 1 1 100%;
         margin-bottom: 20px;
     }
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .about-text {
+        width: 100%;
+        text-align: center;
+    }
+    .about-image-stack {
+        width: 100%;
+        height: 280px;
+    }
+    .about-image {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .about-image-1 {
+        width: 100%;
+        height: 100%;
+        right: auto;
+        bottom: 0;
+    }
+    .about-image-2 {
+        width: 85%;
+        height: 85%;
+        left: 50%;
+        transform: translateX(-50%) scale(0.85, 0.9) skew(0, -5deg);
+        bottom: 5%;
+    }
+    .about-image-3 {
+        width: 72.25%;
+        height: 72.25%;
+        left: 50%;
+        transform: translateX(-50%) scale(0.7, 0.8) skew(0, -10deg);
+        bottom: 10%;
+    }
 }
 
 /* 375px и ниже */
@@ -1784,7 +1853,7 @@ body {
     .testimonial-text p {
         font-size: 14px;
     }
-    .testimonial-text h3 {
+    .testimonial-text h brut {
         font-size: 18px;
     }
     .dot {
