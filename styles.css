@@ -280,6 +280,7 @@ body {
 
 .hero-text {
     width: 60%;
+    text-align: left;
 }
 
 .hero-text h1 {
@@ -288,6 +289,7 @@ body {
     font-weight: bold;
     color: #333;
     line-height: 1.2;
+    margin-left: 45px;
 }
 
 .steps-container {
@@ -426,6 +428,9 @@ body {
     .hero-image {
         display: none;
     }
+    .hero-text h1 {
+        margin-left: 0;
+    }
 }
 
 /* Секция Преимущества */
@@ -464,7 +469,7 @@ body {
 .payments h2 {
     color: #27AE60;
     text-align: center;
-    font-size: 48px;
+    font-size: 36px;
 }
 
 /* Секция Как это работает */
@@ -593,7 +598,7 @@ body {
     margin: 0 auto;
     padding: 30px;
     width: 1280px;
-    height: 500px;
+    height: auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: visible;
 }
@@ -608,7 +613,7 @@ body {
 .testimonial-slide {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     opacity: 0;
     transition: opacity 0.5s ease;
     left: 0;
@@ -629,7 +634,7 @@ body {
 .testimonial-content {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
     align-items: flex-start;
     gap: 20px;
     background: #fff;
@@ -702,13 +707,13 @@ body {
     margin: 0;
 }
 
-/* Убираем "Читать далее" для ПК и планшетов, показываем с ограничением для мобильных */
+/* Стили для "Читать далее" */
 .read-more {
     color: #27AE60;
     text-decoration: underline;
     cursor: pointer;
     margin-top: 10px;
-    display: none; /* По умолчанию скрыто */
+    display: none;
 }
 
 @media (max-width: 375px) {
@@ -762,7 +767,7 @@ body {
 @media (max-width: 375px) {
     .testimonial-slider-container {
         width: 355px;
-        height: 730px;
+        height: auto;
         padding: 10px;
     }
     .testimonial-text p {
@@ -803,11 +808,23 @@ body {
     background-color: #27AE60;
 }
 
+/* Уточняем центрирование точек для мобильной версии */
+@media (max-width: 375px) {
+    .testimonial-dots {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        transform: none;
+    }
+}
+
 /* Стрелки навигации */
 .testimonial-nav-btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50%; /* Центрируем кнопки по вертикали */
+    transform: translateY(-50%); /* Корректируем положение для точного центрирования */
     width: 40px;
     height: 40px;
     background-color: #4CAF50;
@@ -827,7 +844,7 @@ body {
 }
 
 .prev-btn {
-    left: -60px;
+    left: 10px;
 }
 
 .prev-btn::after {
@@ -838,7 +855,7 @@ body {
 }
 
 .next-btn {
-    right: -60px;
+    right: 10px;
 }
 
 .next-btn::after {
@@ -852,11 +869,7 @@ body {
 @media (max-width: 375px) {
     .prev-btn,
     .next-btn {
-        display: none; /* Скрываем стрелки на мобильных */
-    }
-    .testimonial-dots {
-        position: static; /* Делаем точки видимыми и центрируем на мобильных */
-        margin-top: 15px;
+        display: none;
     }
 }
 
@@ -1225,13 +1238,13 @@ body {
     }
     .testimonial-slider-container {
         width: 1180px;
-        height: 736px;
+        height: auto;
     }
     .prev-btn {
-        left: -60px;
+        left: 10px;
     }
     .next-btn {
-        right: -60px;
+        right: 10px;
     }
 }
 
@@ -1265,13 +1278,13 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 736px;
+        height: auto;
     }
     .prev-btn {
-        left: -60px;
+        left: 10px;
     }
     .next-btn {
-        right: -60px;
+        right: 10px;
     }
 }
 
@@ -1314,13 +1327,13 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 736px;
+        height: auto;
     }
     .prev-btn {
-        left: -60px;
+        left: 10px;
     }
     .next-btn {
-        right: -60px;
+        right: 10px;
     }
 }
 
@@ -1363,13 +1376,13 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 736px;
+        height: auto;
     }
     .prev-btn {
-        left: -60px;
+        left: 10px;
     }
     .next-btn {
-        right: -60px;
+        right: 10px;
     }
 }
 
@@ -1415,13 +1428,13 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 736px;
+        height: auto;
     }
     .prev-btn {
-        left: -60px;
+        left: 10px;
     }
     .next-btn {
-        right: -60px;
+        right: 10px;
     }
 }
 
@@ -1440,11 +1453,12 @@ body {
     }
     .hero-text {
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
     .hero-text h1 {
         font-size: 28px;
         margin-bottom: 30px;
+        margin-left: 0;
     }
     .steps {
         flex-direction: column;
@@ -1540,7 +1554,7 @@ body {
     }
     .testimonial-slider-container {
         width: 768px;
-        height: 1056px;
+        height: auto;
         padding: 20px;
     }
     .testimonial-content {
@@ -1565,13 +1579,14 @@ body {
         overflow-y: auto;
     }
     .prev-btn {
-        left: -40px;
+        left: 10px;
     }
     .next-btn {
-        right: -40px;
+        right: 10px;
     }
     .testimonial-nav-btn {
-        display: flex;
+        top: 50%;
+        transform: translateY(-50%);
         width: 35px;
         height: 35px;
     }
@@ -1604,7 +1619,7 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 730px;
+        height: auto;
         padding: 15px;
     }
     .testimonial-image {
@@ -1618,9 +1633,9 @@ body {
         font-size: 20px;
     }
     .prev-btn {
-        left: -30px;
+        left: 10px;
     }
     .next-btn {
-        right: -30px;
+        right: 10px;
     }
 }
