@@ -1,4 +1,4 @@
-/* Font Face Declarations */
+/* Объявления шрифтов */
 @font-face {
     font-family: 'Involve';
     src: url('/fonts/involve/Involve-Regular.ttf') format('truetype');
@@ -63,7 +63,7 @@
     font-display: swap;
 }
 
-/* Global Reset and Base Styles */
+/* Глобальный сброс и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -85,7 +85,7 @@ body {
     width: 100%;
 }
 
-/* Header */
+/* Шапка */
 .header {
     background-color: #4CAF50;
     padding: 15px 0;
@@ -153,7 +153,7 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Mobile Controls */
+/* Управление мобильным меню */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -187,7 +187,7 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Mobile Menu */
+/* Мобильное меню */
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -197,18 +197,18 @@ body {
     height: 100vh;
     background-color: white;
     z-index: 1001;
-    transition: all 0.4s ease-in-out; /* Плавный переход для всех свойств */
+    transition: all 0.4s ease-in-out;
     padding: 20px;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    opacity: 0; /* Начальная прозрачность */
-    transform: translateX(20px); /* Начальный сдвиг вправо */
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .mobile-menu.active {
-    right: 0; /* Меню появляется */
-    opacity: 1; /* Полная видимость */
-    transform: translateX(0); /* Сдвиг в исходное положение */
+    right: 0;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .mobile-menu-header {
@@ -266,7 +266,7 @@ body {
     color: #4CAF50;
 }
 
-/* Hero Section */
+/* Секция Hero */
 .hero {
     padding: 50px 0;
     background-color: #fff;
@@ -369,7 +369,7 @@ body {
     background-color: #e65c00;
 }
 
-/* Image Stack Effect */
+/* Эффект наложения изображений */
 .hero-image {
     width: 30%;
     position: relative;
@@ -421,7 +421,14 @@ body {
     opacity: 0.6;
 }
 
-/* Features Section */
+/* Скрытие изображения на мобильных устройствах */
+@media (max-width: 768px) {
+    .hero-image {
+        display: none;
+    }
+}
+
+/* Секция Преимущества */
 .features {
     padding: 50px 0;
     background-color: #f9f9f9;
@@ -448,7 +455,7 @@ body {
     line-height: 1.5;
 }
 
-/* Payments Section */
+/* Секция Выплаты */
 .payments {
     padding: 30px 0;
     background-color: #E6F7ED;
@@ -460,7 +467,7 @@ body {
     font-size: 48px;
 }
 
-/* How It Works Section */
+/* Секция Как это работает */
 .how-it-works {
     padding: 60px 0;
     background-color: #fff;
@@ -557,7 +564,7 @@ body {
     background-color: #ddd;
 }
 
-/* Testimonials Section */
+/* Секция Отзывы */
 .testimonials {
     padding: 50px 0;
     background-color: #f9f9f9;
@@ -569,7 +576,14 @@ body {
     margin-bottom: 40px;
     color: #333;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
+}
+
+.testimonial-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .testimonial-slider-container {
@@ -578,31 +592,31 @@ body {
     border-radius: 10px;
     margin: 0 auto;
     padding: 30px;
-    width: 1280px; /* Ширина для ПК */
-    height: 500px; /* Высота для ПК */
+    width: 1280px;
+    height: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: visible; /* Чтобы стрелки были видны */
+    overflow: visible;
 }
 
 .testimonial-slider {
     position: relative;
     width: 100%;
-    height: 100%; /* Занимает всю высоту контейнера */
+    height: 100%;
     overflow: hidden;
 }
 
 .testimonial-slide {
     position: absolute;
     width: 100%;
-    height: 100%; /* Занимает всю высоту слайдера */
+    height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease;
     left: 0;
     top: 0;
     display: none;
-    flex-direction: row; /* Горизонтальное расположение как на макете */
+    flex-direction: row;
     align-items: flex-start;
-    gap: 20px; /* Отступ между картинкой и текстом */
+    gap: 20px;
 }
 
 .testimonial-slide.active {
@@ -615,9 +629,9 @@ body {
 .testimonial-content {
     display: flex;
     width: 100%;
-    height: 100%; /* Занимает всю высоту слайда */
+    height: 100%;
     align-items: flex-start;
-    gap: 20px; /* Отступ между картинкой и текстом */
+    gap: 20px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -625,7 +639,7 @@ body {
 }
 
 .testimonial-image {
-    width: 288px; /* Фиксированный размер как на ПК */
+    width: 288px;
     height: 288px;
     flex-shrink: 0;
 }
@@ -633,7 +647,7 @@ body {
 .testimonial-image img {
     width: 100%;
     height: 100%;
-    border-radius: 10px; /* Закругленные углы, как на макете */
+    border-radius: 10px;
     display: block;
     object-fit: cover;
     object-position: center;
@@ -641,7 +655,8 @@ body {
 
 .testimonial-info {
     flex-grow: 1;
-    overflow-y: auto; /* Добавляем прокрутку текста, если он не помещается */
+    overflow-y: auto;
+    text-align: left;
 }
 
 .testimonial-header {
@@ -669,6 +684,10 @@ body {
     font-style: italic;
 }
 
+.testimonial-text {
+    position: relative;
+}
+
 .testimonial-text h3 {
     font-size: 24px;
     color: #333;
@@ -680,9 +699,85 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
+    margin: 0;
 }
 
-/* Navigation Dots */
+/* Убираем "Читать далее" для ПК и планшетов, показываем с ограничением для мобильных */
+.read-more {
+    color: #27AE60;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+    display: none; /* По умолчанию скрыто */
+}
+
+@media (max-width: 375px) {
+    .testimonial-text p {
+        max-height: 96px; /* Ограничение высоты текста на мобильных (примерно 3 строки) */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .testimonial-text.expanded p {
+        max-height: 1000px; /* Полное отображение текста при нажатии */
+    }
+    .read-more {
+        display: inline-block; /* Показываем "Читать далее" только на мобильных */
+    }
+}
+
+/* Адаптивные стили для отзывов */
+@media (max-width: 768px) {
+    .testimonial-slider-container {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    .testimonial-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .testimonial-image {
+        width: 100%;
+        height: auto;
+    }
+    .testimonial-image img {
+        width: 100%;
+        height: auto;
+    }
+    .testimonial-info {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonial-slider-container {
+        height: auto;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .testimonial-slider-container {
+        width: 355px;
+        height: 730px;
+        padding: 10px;
+    }
+    .testimonial-text p {
+        font-size: 14px;
+    }
+    .testimonial-text h3 {
+        font-size: 18px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Точки навигации */
 .testimonial-dots {
     display: flex;
     justify-content: center;
@@ -708,25 +803,7 @@ body {
     background-color: #27AE60;
 }
 
-/* Navigation Arrows */
-.arrow-left,
-.arrow-right {
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
-.arrow-left {
-    border-width: 10px 14px 10px 0;
-    border-color: transparent #ffffff transparent transparent;
-}
-
-.arrow-right {
-    border-width: 10px 0 10px 14px;
-    border-color: transparent transparent transparent #ffffff;
-}
-
+/* Стрелки навигации */
 .testimonial-nav-btn {
     position: absolute;
     top: 50%;
@@ -750,14 +827,40 @@ body {
 }
 
 .prev-btn {
-    left: -20px; /* Ближе к слайдеру, как на макете */
+    left: -60px;
+}
+
+.prev-btn::after {
+    content: '<-';
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .next-btn {
-    right: -20px; /* Ближе к слайдеру, как на макете */
+    right: -60px;
 }
 
-/* About Section */
+.next-btn::after {
+    content: '->';
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Скрываем стрелки на мобильных устройствах */
+@media (max-width: 375px) {
+    .prev-btn,
+    .next-btn {
+        display: none; /* Скрываем стрелки на мобильных */
+    }
+    .testimonial-dots {
+        position: static; /* Делаем точки видимыми и центрируем на мобильных */
+        margin-top: 15px;
+    }
+}
+
+/* Секция О проекте */
 .about {
     padding: 80px 0;
     background-color: #fff;
@@ -769,7 +872,7 @@ body {
     margin-bottom: 40px;
     color: #333;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
 }
 
 .about-content {
@@ -781,6 +884,7 @@ body {
 
 .about-text {
     width: 55%;
+    text-align: left;
 }
 
 .about-text p {
@@ -818,7 +922,7 @@ body {
     height: 100%;
     top: 0;
     z-index: 3;
-    background-image: url('img/beautiful-woman-dressed-formally-office-with-laptop.png');
+    background-image: url('img/young-female-student-listening-her-english-teacher.png');
 }
 
 .about-image-2 {
@@ -826,7 +930,7 @@ body {
     height: 85%;
     bottom: -5%;
     z-index: 2;
-    background-image: url('img/beautiful-woman-dressed-formally-office-with-laptop.png');
+    background-image: url('img/young-female-student-listening-her-english-teacher.png');
 }
 
 .about-image-3 {
@@ -834,10 +938,10 @@ body {
     height: 72.25%;
     bottom: -10%;
     z-index: 1;
-    background-image: url('img/beautiful-woman-dressed-formally-office-with-laptop.png');
+    background-image: url('img/young-female-student-listening-her-english-teacher.png');
 }
 
-/* FAQ Section */
+/* Секция FAQ */
 .faq {
     padding: 50px 0;
     background-color: #f9f9f9;
@@ -933,7 +1037,7 @@ body {
     margin: 0;
 }
 
-/* Contact Section */
+/* Секция Контакты */
 .contact {
     padding: 50px 0;
     background-color: #E6F7ED;
@@ -948,6 +1052,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.2;
+}
+
+.contact-button {
+    margin-top: 20px;
 }
 
 .btn-green {
@@ -967,7 +1075,7 @@ body {
     background-color: #3e8e41;
 }
 
-/* Footer */
+/* Подвал */
 .footer {
     background-color: #333;
     padding: 30px 0;
@@ -1005,53 +1113,7 @@ body {
     color: #4CAF50;
 }
 
-/* Register Form */
-.register-form {
-    padding: 50px 0;
-    background-color: #fff;
-    display: none;
-}
-
-.register-form h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
-}
-
-.register-form form {
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.register-form input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.register-form button {
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-}
-
-.register-form .login-link {
-    color: #27AE60;
-    text-decoration: none;
-    text-align: center;
-}
-
-.register-form .login-link:hover {
-    text-decoration: underline;
-}
-
-/* Login Popup */
+/* Всплывающее окно входа */
 .login-popup {
     display: none;
     position: fixed;
@@ -1142,9 +1204,9 @@ body {
     margin-top: 10px;
 }
 
-/* Responsive Styles */
+/* Адаптивные стили */
 
-/* 1280px and below */
+/* 1280px и ниже */
 @media (max-width: 1280px) {
     .container {
         padding: 0 45px;
@@ -1162,18 +1224,18 @@ body {
         font-size: 52px;
     }
     .testimonial-slider-container {
-        width: 1180px; /* Учитываем padding контейнера (1280 - 45*2) */
+        width: 1180px;
         height: 736px;
     }
     .prev-btn {
-        left: -20px;
+        left: -60px;
     }
     .next-btn {
-        right: -20px;
+        right: -60px;
     }
 }
 
-/* 1080px and below */
+/* 1080px и ниже */
 @media (max-width: 1080px) {
     .container {
         padding: 0 35px;
@@ -1202,18 +1264,18 @@ body {
         font-size: 38px;
     }
     .testimonial-slider-container {
-        width: 100%; /* На меньших экранах контейнер адаптируется */
+        width: 100%;
         height: 736px;
     }
     .prev-btn {
-        left: -20px;
+        left: -60px;
     }
     .next-btn {
-        right: -20px;
+        right: -60px;
     }
 }
 
-/* 980px and below */
+/* 980px и ниже */
 @media (max-width: 980px) {
     .container {
         padding: 0 30px;
@@ -1255,14 +1317,14 @@ body {
         height: 736px;
     }
     .prev-btn {
-        left: -20px;
+        left: -60px;
     }
     .next-btn {
-        right: -20px;
+        right: -60px;
     }
 }
 
-/* 880px and below */
+/* 880px и ниже */
 @media (max-width: 880px) {
     .hero-text h1 {
         font-size: 32px;
@@ -1304,14 +1366,14 @@ body {
         height: 736px;
     }
     .prev-btn {
-        left: -20px;
+        left: -60px;
     }
     .next-btn {
-        right: -20px;
+        right: -60px;
     }
 }
 
-/* 820px and below */
+/* 820px и ниже */
 @media (max-width: 820px) {
     .container {
         padding: 0 25px;
@@ -1356,14 +1418,14 @@ body {
         height: 736px;
     }
     .prev-btn {
-        left: -20px;
+        left: -60px;
     }
     .next-btn {
-        right: -20px;
+        right: -60px;
     }
 }
 
-/* 768px and below (Tablet) */
+/* 768px и ниже (планшет) */
 @media (max-width: 768px) {
     .header-right {
         display: none;
@@ -1448,19 +1510,6 @@ body {
     .stat-divider {
         display: none;
     }
-    .hero-image {
-        width: 100%;
-        max-width: 400px;
-        height: 300px;
-        margin-top: 30px;
-        align-self: center;
-    }
-    .layer-2 {
-        left: -5%;
-    }
-    .layer-3 {
-        left: -10%;
-    }
     .about-image-stack {
         height: 300px;
     }
@@ -1470,7 +1519,7 @@ body {
     }
     .about-text {
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
     .about-image-stack {
         width: 100%;
@@ -1490,17 +1539,17 @@ body {
         text-align: center;
     }
     .testimonial-slider-container {
-        width: 768px; /* Ширина для планшета */
-        height: 1056px; /* Высота для планшета */
+        width: 768px;
+        height: 1056px;
         padding: 20px;
     }
     .testimonial-content {
-        flex-direction: column; /* Вертикальное расположение, чтобы уместить содержимое */
+        flex-direction: column;
         align-items: center;
         gap: 15px;
     }
     .testimonial-image {
-        width: 288px; /* Оставляем фиксированный размер */
+        width: 288px;
         height: 288px;
     }
     .testimonial-image img {
@@ -1512,23 +1561,23 @@ body {
     .testimonial-info {
         width: 100%;
         padding: 0;
-        text-align: center;
-        overflow-y: auto; /* Прокрутка текста */
+        text-align: left;
+        overflow-y: auto;
     }
     .prev-btn {
-        left: -20px;
+        left: -40px;
     }
     .next-btn {
-        right: -20px;
+        right: -40px;
     }
     .testimonial-nav-btn {
-        display: flex; /* Показываем кнопки на планшетах */
+        display: flex;
         width: 35px;
         height: 35px;
     }
 }
 
-/* 576px and below */
+/* 576px и ниже */
 @media (max-width: 576px) {
     .container {
         padding: 0 15px;
@@ -1555,7 +1604,7 @@ body {
     }
     .testimonial-slider-container {
         width: 100%;
-        height: 730px; /* Высота для телефона (будет уточнена на 375px) */
+        height: 730px;
         padding: 15px;
     }
     .testimonial-image {
@@ -1569,69 +1618,9 @@ body {
         font-size: 20px;
     }
     .prev-btn {
-        left: -15px;
+        left: -30px;
     }
     .next-btn {
-        right: -15px;
-    }
-}
-
-/* 375px and below (Mobile) */
-@media (max-width: 375px) {
-    .container {
-        padding: 0 10px;
-    }
-    .hero-text h1 {
-        font-size: 20px;
-    }
-    .steps {
-        margin: 20px 0;
-    }
-    .step-item {
-        margin-bottom: 15px;
-    }
-    .step-number {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-    .step-text h3 {
-        font-size: 16px;
-    }
-    .step-text p {
-        font-size: 12px;
-    }
-    .how-it-works-text h2 {
-        font-size: 24px;
-    }
-    .video-container {
-        height: 150px;
-    }
-    .testimonial-text h3 {
-        font-size: 18px;
-    }
-    .testimonial-text p {
-        font-size: 14px;
-    }
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-    .footer-contacts p,
-    .footer-copyright p {
-        font-size: 14px;
-    }
-    .testimonial-slider-container {
-        width: 355px; /* Учитываем padding контейнера (375 - 10*2) */
-        height: 730px; /* Высота для телефона */
-        padding: 10px;
-    }
-    .testimonial-image {
-        width: 288px;
-        height: 288px;
-    }
-    .prev-btn,
-    .next-btn {
-        display: none; /* Скрываем кнопки на 375px и ниже */
+        right: -30px;
     }
 }
